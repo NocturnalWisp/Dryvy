@@ -1,0 +1,19 @@
+[package]
+name = "dryvy"
+version = "0.0.1"
+authors = ["Nocturnal Wisp"]
+edition = "2021"
+
+[dependencies]
+bevy = { version = "0.8", features = ["dynamic"] }
+
+# Enable a small amount of optimization in debug mode
+[profile.dev]
+opt-level = 1
+
+# Enable high optimizations for dependencies (incl. Bevy), but not for our code:
+[profile.dev.package."*"]
+opt-level = 3
+
+[toolchain]
+channel = "nightly"
